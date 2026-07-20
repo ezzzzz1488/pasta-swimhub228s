@@ -295,3 +295,5 @@ end)
 localPlayer.CharacterRemoving:Connect(function()
 	if isThermalActive then
 		setThermalState(false)
+	end
+end)
