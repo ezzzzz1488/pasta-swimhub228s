@@ -9,7 +9,7 @@ local localPlayer = Players.LocalPlayer
 local playerGui = localPlayer:WaitForChild("PlayerGui")
 
 -- Configuration
-local TOGGLE_KEYBIND = Enum.KeyCode.T 
+local TOGGLE_KEYBIND = Enum.KeyCode.B 
 local isThermalActive = false
 local currentDarknessPercent = 0.5
 local activeHighlights = {}
@@ -107,15 +107,8 @@ colorCorrection.Contrast = 0
 colorCorrection.Saturation = 0
 colorCorrection.Parent = Lighting
 
-local bloom = Instance.new("BloomEffect")
-bloom.Enabled = true
-bloom.Intensity = 3
-bloom.Size = 56
-bloom.Threshold = 0.8
-bloom.Parent = Lighting
 -- Math helper for calculating brightness levels
 local function getTargetBrightness()
-
 	return MIN_BRIGHTNESS + (currentDarknessPercent * (MAX_BRIGHTNESS - MIN_BRIGHTNESS))
 end
 
@@ -125,8 +118,8 @@ local function applyThermalGlow(model)
 	
 	local highlight = Instance.new("Highlight")
 	highlight.Name = "ThermalGlow"
-	highlight.FillColor = Color3.fromRGB(255, 0, 0)
-	highlight.FillTransparency = 0.2                         
+	highlight.FillColor = Color3.fromRGB(255, 255, 255)
+	highlight.FillTransparency = 0                         
 	highlight.OutlineColor = Color3.fromRGB(255, 255, 255) 
 	highlight.OutlineTransparency = 0
 	highlight.DepthMode = Enum.HighlightDepthMode.Occluded 
